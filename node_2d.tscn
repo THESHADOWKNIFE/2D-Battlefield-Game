@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx0qc6eatvb5a"]
+
+[ext_resource type="Texture2D" uid="uid://b2sd231d5ssel" path="res://Sanitäter.png" id="1_u3xm1"]
+[ext_resource type="Texture2D" uid="uid://dofdxvxvnkij7" path="res://VIVA LA FRANCE.png" id="2_2ul6p"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture_filter = 1
+position = Vector2(993, -236)
+texture = ExtResource("1_u3xm1")
+
+[node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D2"]
+position = Vector2(-810, -233)
+texture = ExtResource("2_2ul6p")
