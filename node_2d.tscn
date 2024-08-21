@@ -1,19 +1,20 @@
 [gd_scene load_steps=3 format=3 uid="uid://bx0qc6eatvb5a"]
 
-[ext_resource type="Texture2D" uid="uid://b2sd231d5ssel" path="res://Sanitäter.png" id="1_u3xm1"]
-[ext_resource type="Texture2D" uid="uid://dofdxvxvnkij7" path="res://VIVA LA FRANCE.png" id="2_2ul6p"]
+[ext_resource type="PackedScene" uid="uid://bk3gdd1qngxsv" path="res://france_player.tscn" id="1_6ys3b"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i503v"]
+distance = 2.0
 
 [node name="Node2D" type="Node2D"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="France player" parent="." instance=ExtResource("1_6ys3b")]
+position = Vector2(289, 7)
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-texture_filter = 1
-position = Vector2(993, -236)
-texture = ExtResource("1_u3xm1")
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(20, -253)
+zoom = Vector2(0.5, 0.5)
 
-[node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D2"]
-position = Vector2(-810, -233)
-texture = ExtResource("2_2ul6p")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_i503v")
