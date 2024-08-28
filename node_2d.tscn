@@ -1757,7 +1757,7 @@ func _physics_process(delta):
 position = Vector2(-3203, -117)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(20, -253)
+position = Vector2(-3083, -291)
 zoom = Vector2(0.5, 0.5)
 
 [node name="TileMap" type="TileMap" parent="."]

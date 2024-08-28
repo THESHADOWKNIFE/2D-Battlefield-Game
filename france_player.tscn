@@ -2,7 +2,20 @@
 
 [ext_resource type="Script" path="res://france_player.gd" id="1_0n0qn"]
 [ext_resource type="Texture2D" uid="uid://dofdxvxvnkij7" path="res://VIVA LA FRANCE.png" id="1_gmkat"]
-[ext_resource type="Script" path="res://opacity.gd" id="3_lpl14"]
+
+[sub_resource type="GDScript" id="GDScript_xgivn"]
+script/source = "extends Sprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	modulate.a8 = 100
+"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bh5oo"]
 radius = 62.0
@@ -14,7 +27,7 @@ script = ExtResource("1_0n0qn")
 [node name="VivaLaFrance" type="Sprite2D" parent="."]
 position = Vector2(-153, -232)
 texture = ExtResource("1_gmkat")
-script = ExtResource("3_lpl14")
+script = SubResource("GDScript_xgivn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-259, -234)
