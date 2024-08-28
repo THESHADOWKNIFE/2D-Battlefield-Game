@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkpg7f7fgh037"]
+
+[ext_resource type="Texture2D" uid="uid://b2sd231d5ssel" path="res://Sanitäter.png" id="1_mulo3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wx2oi"]
+radius = 81.0
+height = 374.0
+
+[node name="German_player" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mulo3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-106, 19)
+shape = SubResource("CapsuleShape2D_wx2oi")
