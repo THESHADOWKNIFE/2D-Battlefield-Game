@@ -4,18 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://dofdxvxvnkij7" path="res://VIVA LA FRANCE.png" id="1_gmkat"]
 
 [sub_resource type="GDScript" id="GDScript_xgivn"]
-script/source = "extends Sprite2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	modulate.a8 = 100
-"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bh5oo"]
 radius = 62.0
