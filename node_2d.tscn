@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bx0qc6eatvb5a"]
+[gd_scene load_steps=8 format=3 uid="uid://bx0qc6eatvb5a"]
 
 [ext_resource type="PackedScene" uid="uid://bk3gdd1qngxsv" path="res://france_player.tscn" id="1_6ys3b"]
 [ext_resource type="Texture2D" uid="uid://fk320bkn4afv" path="res://Weixin Image_20240826114906.jpg" id="2_o58tr"]
+[ext_resource type="PackedScene" uid="uid://dkpg7f7fgh037" path="res://german_player.tscn" id="3_u6yrl"]
 [ext_resource type="AudioStream" uid="uid://dps0tp4vak3ni" path="res://Johan Soderqvist - Battlefield Classic Theme _ Mayhem View.ogg" id="3_dj2t4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lokt1"]
@@ -1718,6 +1719,39 @@ texture = ExtResource("2_o58tr")
 [sub_resource type="TileSet" id="TileSet_y57m5"]
 sources/0 = SubResource("TileSetAtlasSource_lokt1")
 
+[sub_resource type="GDScript" id="GDScript_a6c5g"]
+script/source = "extends CharacterBody2D
+
+
+const SPEED = 300.0
+const JUMP_VELOCITY = -400.0
+
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity = ProjectSettings.get_setting(\"physics/2d/default_gravity\")
+
+
+func _physics_process(delta):
+	# Add the gravity.
+	if not is_on_floor():
+		velocity.y += gravity * delta
+
+	# Handle jump.
+	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var direction = Input.get_axis(\"ui_left\", \"ui_right\")
+	if direction:
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+
+	move_and_slide()
+"
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mcibl"]
+
 [node name="Node2D" type="Node2D"]
 
 [node name="France player" parent="." instance=ExtResource("1_6ys3b")]
@@ -1736,3 +1770,13 @@ layer_0/tile_data = PackedInt32Array(2, 2097152, 10, 65538, 2097152, 11, 3, 2162
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_dj2t4")
 autoplay = true
+[node name="German_player" parent="." instance=ExtResource("3_u6yrl")]
+position = Vector2(597, -803)
+script = SubResource("GDScript_a6c5g")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -543)
+scale = Vector2(30, 30)
+shape = SubResource("WorldBoundaryShape2D_mcibl")
