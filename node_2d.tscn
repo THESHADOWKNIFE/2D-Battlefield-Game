@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bx0qc6eatvb5a"]
+[gd_scene load_steps=9 format=3 uid="uid://bx0qc6eatvb5a"]
 
 [ext_resource type="PackedScene" uid="uid://bk3gdd1qngxsv" path="res://france_player.tscn" id="1_6ys3b"]
 [ext_resource type="Texture2D" uid="uid://fk320bkn4afv" path="res://Weixin Image_20240826114906.jpg" id="2_o58tr"]
-[ext_resource type="PackedScene" uid="uid://dkpg7f7fgh037" path="res://german_player.tscn" id="3_u6yrl"]
 [ext_resource type="AudioStream" uid="uid://dps0tp4vak3ni" path="res://Johan Soderqvist - Battlefield Classic Theme _ Mayhem View.ogg" id="3_dj2t4"]
+[ext_resource type="PackedScene" uid="uid://dkpg7f7fgh037" path="res://german_player.tscn" id="3_u6yrl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lokt1"]
 texture = ExtResource("2_o58tr")
@@ -1770,6 +1770,7 @@ layer_0/tile_data = PackedInt32Array(2, 2097152, 10, 65538, 2097152, 11, 3, 2162
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_dj2t4")
 autoplay = true
+
 [node name="German_player" parent="." instance=ExtResource("3_u6yrl")]
 position = Vector2(597, -803)
 script = SubResource("GDScript_a6c5g")
